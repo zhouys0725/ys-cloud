@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ys-cloud
+  labels:
+    name: ys-cloud
+    environment: development

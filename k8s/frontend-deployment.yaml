@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ys-cloud-frontend
+  namespace: ys-cloud
+  labels:
+    app: ys-cloud-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ys-cloud-frontend
+  template:
+    metadata:
+      labels:
+        app: ys-cloud-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: ys-cloud-frontend:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ys-cloud-frontend-service
+  namespace: ys-cloud
+spec:
+  selector:
+    app: ys-cloud-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
