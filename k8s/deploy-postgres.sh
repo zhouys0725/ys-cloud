@@ -38,23 +38,23 @@ kubectl apply -f postgres-deployment.yaml
 
 # 等待数据库就绪
 echo "⏳ 等待 PostgreSQL 数据库就绪..."
-kubectl wait --for=condition=ready pod -l app=postgres -n ys-cloud --timeout=120s
+kubectl wait --for=condition=ready pod -l app=postgres -n default --timeout=120s
 
 # 获取服务信息
 echo ""
 echo "✅ PostgreSQL 部署完成！"
 echo ""
 echo "📋 PostgreSQL 状态:"
-kubectl get pods -l app=postgres -n ys-cloud
-kubectl get services -l app=postgres -n ys-cloud
+kubectl get pods -l app=postgres -n default
+kubectl get services -l app=postgres -n default
 
 echo ""
 echo "🔍 查看 PostgreSQL 日志:"
-echo "  kubectl logs -f deployment/postgres -n ys-cloud"
+echo "  kubectl logs -f deployment/postgres -n default"
 
 echo ""
 echo "🔗 连接信息:"
-echo "  主机: postgres-service.ys-cloud.svc.cluster.local"
+echo "  主机: postgres-service.default.svc.cluster.local"
 echo "  端口: 5432"
 echo "  数据库: ys_cloud"
 echo "  用户名: postgres"

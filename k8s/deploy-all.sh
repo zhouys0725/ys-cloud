@@ -137,10 +137,10 @@ echo "🌐 服务访问地址:"
 if [ "$SKIP_DEPS" = false ]; then
     echo ""
     echo "📊 PostgreSQL:"
-    echo "  主机: postgres-service.ys-cloud.svc.cluster.local:5432"
+    echo "  主机: postgres-service.default.svc.cluster.local:5432"
     echo ""
     echo "🔴 Redis:"
-    echo "  主机: redis-service.ys-cloud.svc.cluster.local:6379"
+    echo "  主机: redis-service.default.svc.cluster.local:6379"
 fi
 
 echo ""
@@ -166,8 +166,8 @@ if [ "$SKIP_FRONTEND" = false ]; then
     echo "  查看前端日志:     kubectl logs -f deployment/ys-cloud-frontend -n ys-cloud"
 fi
 echo ""
-echo "  连接数据库:       kubectl exec -it deployment/postgres -n ys-cloud -- psql -U postgres -d ys_cloud"
-echo "  连接Redis:        kubectl exec -it deployment/redis -n ys-cloud -- redis-cli -a redispass"
+echo "  连接数据库:       kubectl exec -it deployment/postgres -n default -- psql -U postgres -d ys_cloud"
+echo "  连接Redis:        kubectl exec -it deployment/redis -n default -- redis-cli -a redispass"
 
 echo ""
 echo "💡 清理所有服务:    ./k8s/cleanup.sh"

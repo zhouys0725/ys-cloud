@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres
-  namespace: ys-cloud
+  namespace: default
   labels:
     app: postgres
 spec:
@@ -61,11 +61,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: postgres-service
-  namespace: ys-cloud
+  namespace: default
 spec:
   selector:
     app: postgres
   ports:
   - port: 5432
     targetPort: 5432
-  type: ClusterIP
+  type: LoadBalancer

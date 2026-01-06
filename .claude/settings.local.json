@@ -48,7 +48,16 @@
       "Bash(go run:*)",
       "Bash(kubectl port-forward:*)",
       "Bash(SERVER_PORT=8081 go run:*)",
-      "Bash(SERVER_PORT=8082 go run:*)"
+      "Bash(SERVER_PORT=8082 go run:*)",
+      "Bash(minikube ip:*)",
+      "Bash(mysql:*)",
+      "Bash(xargs:*)",
+      "Bash(./k8s/mysql-query.sh:*)",
+      "Bash(./k8s/stop-mysql-forward.sh:*)",
+      "Bash(./k8s/start-mysql-forward.sh:*)",
+      "Bash(minikube:*)",
+      "Bash(kubectl rollout history:*)",
+      "Bash(kubectl rollout undo:*)"
     ],
     "deny": [],
     "ask": []

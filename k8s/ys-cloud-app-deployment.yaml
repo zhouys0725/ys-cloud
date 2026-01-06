@@ -23,7 +23,7 @@ spec:
         - containerPort: 8080
         env:
         - name: DATABASE_HOST
-          value: "postgres-service"
+          value: "postgres-service.default.svc.cluster.local"
         - name: DATABASE_PORT
           value: "5432"
         - name: DATABASE_USER
@@ -33,7 +33,7 @@ spec:
         - name: DATABASE_DB_NAME
           value: "ys_cloud"
         - name: REDIS_HOST
-          value: "redis-service"
+          value: "redis-service.default.svc.cluster.local"
         - name: REDIS_PORT
           value: "6379"
         - name: REDIS_PASSWORD

@@ -34,26 +34,26 @@ kubectl apply -f redis-deployment.yaml
 
 # 等待 Redis 就绪
 echo "⏳ 等待 Redis 缓存就绪..."
-kubectl wait --for=condition=ready pod -l app=redis -n ys-cloud --timeout=60s
+kubectl wait --for=condition=ready pod -l app=redis -n default --timeout=60s
 
 # 获取服务信息
 echo ""
 echo "✅ Redis 部署完成！"
 echo ""
 echo "📋 Redis 状态:"
-kubectl get pods -l app=redis -n ys-cloud
-kubectl get services -l app=redis -n ys-cloud
+kubectl get pods -l app=redis -n default
+kubectl get services -l app=redis -n default
 
 echo ""
 echo "🔍 查看 Redis 日志:"
-echo "  kubectl logs -f deployment/redis -n ys-cloud"
+echo "  kubectl logs -f deployment/redis -n default"
 
 echo ""
 echo "🔗 连接信息:"
-echo "  主机: redis-service.ys-cloud.svc.cluster.local"
+echo "  主机: redis-service.default.svc.cluster.local"
 echo "  端口: 6379"
 echo "  密码: redispass (在 secrets.yaml 中配置)"
 
 echo ""
 echo "🧪 测试 Redis 连接:"
-echo "  kubectl exec -it deployment/redis -n ys-cloud -- redis-cli -a redispass ping"
+echo "  kubectl exec -it deployment/redis -n default -- redis-cli -a redispass ping"

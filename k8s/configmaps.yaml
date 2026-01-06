@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: postgres-config
-  namespace: ys-cloud
+  namespace: default
 data:
   database: "ys_cloud"
 
@@ -11,7 +11,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: postgres-init-script
-  namespace: ys-cloud
+  namespace: default
 data:
   init.sql: |
     CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
@@ -22,7 +22,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: app-config
-  namespace: ys-cloud
+  namespace: default
 data:
   server.port: "8080"
   server.gin_mode: "release"
@@ -31,7 +31,7 @@ data:
   jwt.expires_in: "168h"
   docker.host: "unix:///var/run/docker.sock"
   docker.registry: "registry.hub.docker.com"
-  k8s.namespace: "ys-cloud"
+  k8s.namespace: "default"
   storage.type: "local"
   storage.path: "./uploads"
   log.level: "info"
